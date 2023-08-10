@@ -1,5 +1,5 @@
 {
-  "name": "my-project",
+  "name": "SoloNatura",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,7 +12,9 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.2"
+    "react-icons": "^4.10.1",
+    "react-router-dom": "^6.14.2",
+    "swiper": "^10.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

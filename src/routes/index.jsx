@@ -3,6 +3,7 @@ import WelcomePage1 from "../pages/welcome1";
 import Walkthrough1 from "../pages/Walkthrough1";
 import Walkthrough2 from "../pages/Walkthrough2";
 import Walkthrough3 from "../pages/Walkthrough3";
+import HomeScreenPage from "../pages/HomeScreen1.2";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/Walkthrough3",
     element: <Walkthrough3 />,
+  },
+  {
+    path: "/homeScreen",
+    element: <HomeScreenPage />,
   },
 ]);
 
