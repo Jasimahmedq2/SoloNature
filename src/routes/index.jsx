@@ -4,6 +4,7 @@ import Walkthrough1 from "../pages/Walkthrough1";
 import Walkthrough2 from "../pages/Walkthrough2";
 import Walkthrough3 from "../pages/Walkthrough3";
 import HomeScreenPage from "../pages/HomeScreen1.2";
+import ShopeScreenSearch from "../pages/shopScreen1.2";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/homeScreen",
     element: <HomeScreenPage />,
+  },
+  {
+    path: "/shopScreen",
+    element: <ShopeScreenSearch />,
   },
 ]);
 
