@@ -7,6 +7,7 @@ import HomeScreenPage from "../pages/HomeScreen1.2";
 import ShopeScreenSearch from "../pages/shopScreen1.2";
 import ShopProduct from "../pages/shopeProduct";
 import ProductDetailsPage from "../pages/productDetailsPage";
+import SecondSearch from "../pages/secondSearch";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/product/:id",
     element: <ProductDetailsPage />,
+  },
+  {
+    path: "/search2",
+    element: <SecondSearch />,
   },
 ]);
 
