@@ -5,6 +5,8 @@ import Walkthrough2 from "../pages/Walkthrough2";
 import Walkthrough3 from "../pages/Walkthrough3";
 import HomeScreenPage from "../pages/HomeScreen1.2";
 import ShopeScreenSearch from "../pages/shopScreen1.2";
+import ShopProduct from "../pages/shopeProduct";
+import ProductDetailsPage from "../pages/productDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
   {
     path: "/shopScreen",
     element: <ShopeScreenSearch />,
+  },
+  {
+    path: "/shopProduct/:category",
+    element: <ShopProduct />,
+  },
+  {
+    path: "/product/:id",
+    element: <ProductDetailsPage />,
   },
 ]);
 
