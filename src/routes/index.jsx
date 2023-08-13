@@ -8,6 +8,7 @@ import ShopeScreenSearch from "../pages/shopScreen1.2";
 import ShopProduct from "../pages/shopeProduct";
 import ProductDetailsPage from "../pages/productDetailsPage";
 import SecondSearch from "../pages/secondSearch";
+import IngredientiPage from "../pages/IngredientiPage";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/search2",
     element: <SecondSearch />,
+  },
+  {
+    path: "/ingredienti",
+    element: <IngredientiPage />,
   },
 ]);
 
