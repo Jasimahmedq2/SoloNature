@@ -9,6 +9,9 @@ import ShopProduct from "../pages/shopeProduct";
 import ProductDetailsPage from "../pages/productDetailsPage";
 import SecondSearch from "../pages/secondSearch";
 import IngredientiPage from "../pages/IngredientiPage";
+import CartPage from "../pages/CartPage";
+import OrderFormPage from "../pages/orderFormPage";
+import OrderPaymentPage from "../pages/orderPaymentPage";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +53,18 @@ const router = createBrowserRouter([
   {
     path: "/ingredienti",
     element: <IngredientiPage />,
+  },
+  {
+    path: "/cart",
+    element: <CartPage />,
+  },
+  {
+    path: "/orderForm",
+    element: <OrderFormPage />,
+  },
+  {
+    path: "/orderPayment",
+    element: <OrderPaymentPage />,
   },
 ]);
 
