@@ -12,6 +12,8 @@ import IngredientiPage from "../pages/IngredientiPage";
 import CartPage from "../pages/CartPage";
 import OrderFormPage from "../pages/orderFormPage";
 import OrderPaymentPage from "../pages/orderPaymentPage";
+import FavoritePage from "../pages/FavoritePage";
+import AddedFavorite from "../pages/addedFavorite";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +67,14 @@ const router = createBrowserRouter([
   {
     path: "/orderPayment",
     element: <OrderPaymentPage />,
+  },
+  {
+    path: "/favorite",
+    element: <FavoritePage />,
+  },
+  {
+    path: "/favorite2",
+    element: <AddedFavorite />,
   },
 ]);
 
