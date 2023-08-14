@@ -27,8 +27,8 @@ const HomeBanner2 = () => {
       >
         <SwiperSlide>
           <div className="flex pt-3 space-x-4">
-            <Link to="/product/1">
-              <div className="pt-2 w-1/2 space-x-2">
+            <div className="pt-2 w-1/2 space-x-2">
+              <Link to="/product/1">
                 <div>
                   <div className="flex justify-between">
                     <h2 className="px-2 rounded bg-[#FED2AA] w-12">new</h2>
@@ -54,8 +54,8 @@ const HomeBanner2 = () => {
                     <p className="text-md">€ 28.70</p>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
 
             <div className="pt-2 w-1/2">
               <div>
