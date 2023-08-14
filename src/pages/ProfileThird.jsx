@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const ProfileThird = () => {
+  const navigate = useNavigate();
   return (
     <div className="mx-8">
       <div className="flex items-center mt-6">
@@ -16,6 +19,7 @@ const ProfileThird = () => {
       <div className="mt-10 bg-[#F1F5F9] w-80 px-4 py-3 shadow-md gap-6">
         <div className="flex items-center gap-0 mx-14 mr-10">
           <img
+            onClick={() => navigate(-1)}
             className="h-7 w-7"
             src="https://i.ibb.co/CbLTQng/dots.png"
             alt=""

@@ -8,6 +8,8 @@ const HomeFive = () => {
         <img src="https://i.ibb.co/N3DQzBq/five.jpg" alt="" />
       </div>
       <div>
+      </div>
+      <div>
         <h1 className="text-center font-sans text-3xl mt-6">
           Benvenuti suv <br /> Solo Natura
         </h1>
@@ -31,7 +33,7 @@ const HomeFive = () => {
         </div>
         <div className=" flex justify-center mt-6 space-x-4">
           <button
-            onClick={() => navigate("/register")}
+            onClick={() => navigate("/registerTwo")}
             className="bg-black text-white font-bold py-4 px-2 focus:outline-none focus:shadow-outline w-80 font-sans text-[20px]"
           >
             Register

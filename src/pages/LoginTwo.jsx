@@ -1,12 +1,21 @@
+import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginTwo = () => {
   const navigate = useNavigate();
-
+  const handleNavigate = () => {
+    navigate(-1);
+  };
   return (
     <div className="">
       <div className="max-w-sm w-full bg-white rounded">
-        <h1 className="mx-8 mt-10"> Login</h1>
+        <div className="flex items-center space-x-6 pt-4 px-2">
+          <IoIosArrowBack
+            onClick={handleNavigate}
+            className="text-3xl hover:cursor-pointer"
+          />
+          <h3 className="text-md font-semibold">Accedi</h3>
+        </div>
         <form>
           <div className="grid justify-items-center mt-8">
             <div className="flex items-center space-x-2 bg-base-200 p-2  border border-black w-80 py-4 ">

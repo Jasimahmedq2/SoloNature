@@ -1,15 +1,27 @@
-import { Link } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate(-1);
+  };
   return (
     <div>
       <div className="max-w-sm w-full bg-white rounded">
-        <div className="mb-4 border-gray-200">
+        <div className="mb-4 relative border-gray-200">
           <img
-            src="https://i.ibb.co/6WGqmz4/forget.jpg"
+            src="https://i.ibb.co/xsQ4hg0/pic.png"
             alt="Background Image"
             className="w-full h-auto"
           />
+          <div className="absolute flex items-center space-x-6 top-8  left-4">
+            <IoIosArrowBack
+              onClick={handleNavigate}
+              className="text-3xl hover:cursor-pointer"
+            />
+            <h3 className="text-md font-semibold">Nuova Password</h3>
+          </div>
         </div>
         <form>
           <div className="grid justify-items-center">

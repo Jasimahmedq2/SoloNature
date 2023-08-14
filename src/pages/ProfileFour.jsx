@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 const ProfileFour = () => {
+  const navigate = useNavigate();
   return (
     <div className="mx-8">
       <div className="flex items-center gap-8 mt-6">
         <img
+          onClick={() => navigate(-1)}
           className="h-9 w-9"
           src="https://cdn-icons-png.flaticon.com/128/3877/3877262.png"
           alt=""
