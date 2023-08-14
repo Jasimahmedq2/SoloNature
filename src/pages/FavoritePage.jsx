@@ -1,8 +1,10 @@
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import BottomNavbar from "../components/menu";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const FavoritePage = () => {
+  const navigate = useNavigate();
   return (
     <div className="px-6 py-4">
       <div className="flex justify-between items-center">
@@ -25,7 +27,10 @@ const FavoritePage = () => {
             Trova qualcosa di speciale per te!
           </p>
         </div>
-        <button className="bg-[#ECDFCE] text-md font-bold hover:cursor-pointer px-6 py-2 rounded">
+        <button
+          onClick={() => navigate("/favorite2")}
+          className="bg-[#ECDFCE] text-md font-bold hover:cursor-pointer px-6 py-2 rounded"
+        >
           Vai allo shop
         </button>
       </div>

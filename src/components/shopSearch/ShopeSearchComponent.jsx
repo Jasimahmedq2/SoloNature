@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const searchData = [
   {
@@ -122,10 +123,14 @@ const searchData2 = [
 
 const ShopeSearchComponent = () => {
   const [activeTab, setActiveTab] = useState(1);
+  const navigate = useNavigate();
 
   const tabContent =
     activeTab === 1 ? (
-      <div className="grid grid-cols-2 gap-4">
+      <div
+        onClick={() => navigate("/shopProduct/product")}
+        className="grid grid-cols-2 gap-4"
+      >
         {searchData?.map((search) => (
           <div key={search?._id} className="relative hover-cursor-pointer">
             <img src={search?.image} alt="image" className="w-full h-auto" />
@@ -138,7 +143,11 @@ const ShopeSearchComponent = () => {
     ) : (
       <div className="grid grid-cols-2 gap-4">
         {searchData2?.map((search) => (
-          <div key={search?._id} className="relative hover-cursor-pointer">
+          <div
+            onClick={() => navigate("/shopProduct/product")}
+            key={search?._id}
+            className="relative hover-cursor-pointer"
+          >
             <img src={search?.image} alt="image" className="w-full h-auto" />
             <div className="absolute left-4  bottom-10 w-full">
               <p className="text-white text-2xl font-bold">{search?.text}</p>

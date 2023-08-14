@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OrderFormComponent = () => {
   const options = [
@@ -24,6 +25,7 @@ const OrderFormComponent = () => {
   const [selectedOption, setSelectedOption] = useState(options[0].value);
   const [selectedOption2, setSelectedOption2] = useState(options2[0].value);
   const [isChecked, setIsChecked] = useState(false);
+  const navigate = useNavigate();
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -170,11 +172,13 @@ const OrderFormComponent = () => {
         </span>
       </div>
       <div className="py-6">
-      <button className="bg-[#000000] text-white text-md font-bold hover:cursor-pointer p-4 w-full rounded">
-        Vai al pagamento
-      </button>
+        <button
+          onClick={() => navigate("/orderPayment")}
+          className="bg-[#000000] text-white text-md font-bold hover:cursor-pointer p-4 w-full rounded"
+        >
+          Vai al pagamento
+        </button>
       </div>
-   
     </div>
   );
 };

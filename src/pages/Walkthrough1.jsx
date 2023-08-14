@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const Walkthrough1 = () => {
+  const navigate = useNavigate();
   return (
     <div className="h-screen relative bg-gray-100">
       <div className="h-[48%] z-0 w-full">
@@ -20,7 +23,10 @@ const Walkthrough1 = () => {
               <div className="w-3 h-3 bg-gray-300 rounded-full mr-2"></div>
               <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
             </div>
-            <button className="text-black text-xl border border-black w-full p-2">
+            <button
+              onClick={() => navigate("/Walkthrough2")}
+              className="text-black text-xl border border-black w-full p-2"
+            >
               Successivo
             </button>
           </div>

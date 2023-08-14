@@ -5,6 +5,7 @@ import HomeBannerComponent from "../components/homeScreenComponent/homeBanner1";
 import HomeBanner3 from "../components/homeScreenComponent/homeBanner3";
 import BottomNavbar from "../components/menu";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const HomeScreenPage = () => {
   const [showPopup, setShowPopup] = useState(true);
@@ -20,8 +21,11 @@ const HomeScreenPage = () => {
           src="https://i.ibb.co/LkmD31Q/cropped-logo-solo-natura-upscaled-1.png"
           alt=""
         />
-        <MdOutlineLocalGroceryStore className="text-2xl" />
+        <Link to="/cart">
+          <MdOutlineLocalGroceryStore className="text-2xl" />
+        </Link>
       </div>
+
       {/* banner components */}
       <div className="">
         {/* banner component 1*/}

@@ -1,6 +1,6 @@
 import { CiSearch, CiSquareRemove } from "react-icons/ci";
 import { IoIosArrowBack } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SecondSearch = () => {
   const navigate = useNavigate();
@@ -44,9 +44,11 @@ const SecondSearch = () => {
           <p className="text-md font-semibold">$49.90</p>
         </div>
       </div>
-      <div className="py-2">
-        <h2 className="text-xl font-bold text-[#A05611]">Cerca Bio</h2>
-      </div>
+      <Link to="/shopProduct/category">
+        <div className="py-2">
+          <h2 className="text-xl font-bold text-[#A05611]">Cerca Bio</h2>
+        </div>
+      </Link>
     </div>
   );
 };

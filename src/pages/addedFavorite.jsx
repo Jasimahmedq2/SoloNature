@@ -1,7 +1,6 @@
-import React from "react";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import BottomNavbar from "../components/menu";
-import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiFillStar } from "react-icons/ai";
 
 const AddedFavorite = () => {
   return (

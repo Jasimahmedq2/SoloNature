@@ -14,6 +14,18 @@ import OrderFormPage from "../pages/orderFormPage";
 import OrderPaymentPage from "../pages/orderPaymentPage";
 import FavoritePage from "../pages/FavoritePage";
 import AddedFavorite from "../pages/addedFavorite";
+import HomeFive from "../pages/HomeFive";
+import Login from "../pages/Login";
+import LoginTwo from "../pages/LoginTwo";
+import ForgetPassword from "../pages/ForgetPassword";
+import Register from "../pages/Register";
+import ProfileOne from "../pages/ProfileOne";
+import ProfileTwo from "../pages/ProfileTwo";
+import ProfileThird from "../pages/ProfileThird";
+import ProfileSix from "../pages/ProfileSix";
+import ProfileFour from "../pages/ProfileFour";
+import ProfileFive from "../pages/ProfileFive";
+import RegisterTwo from "../pages/registerTwo";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +87,54 @@ const router = createBrowserRouter([
   {
     path: "/favorite2",
     element: <AddedFavorite />,
+  },
+  {
+    path: "/homefive",
+    element: <HomeFive />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/logintwo",
+    element: <LoginTwo />,
+  },
+  {
+    path: "/forgetpassword",
+    element: <ForgetPassword />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/registertwo",
+    element: <RegisterTwo />,
+  },
+  {
+    path: "/profileone",
+    element: <ProfileOne />,
+  },
+  {
+    path: "/profiletwo",
+    element: <ProfileTwo />,
+  },
+  {
+    path: "/profilethird",
+    element: <ProfileThird />,
+  },
+  {
+    path: "/profilefour",
+    element: <ProfileFour />,
+  },
+  {
+    path: "/profilefive",
+    element: <ProfileFive />,
+  },
+  {
+    path: "/profilesix",
+    element: <ProfileSix />,
   },
 ]);
 

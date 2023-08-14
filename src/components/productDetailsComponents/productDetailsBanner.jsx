@@ -1,6 +1,6 @@
 import { IoIosArrowBack } from "react-icons/io";
 import { HiHeart, HiOutlineShoppingCart } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductDetailsBanner = () => {
   const navigate = useNavigate();
@@ -16,12 +16,14 @@ const ProductDetailsBanner = () => {
         />
         <div className="flex items-center space-x-3">
           <HiHeart className="text-3xl text-[#EB6383]" />
-          <div className="relative">
-            <HiOutlineShoppingCart className="text-3xl" />
-            <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full text-white bg-red-500 text-center">
-              1
-            </span>
-          </div>
+          <Link to="/cart">
+            <div className="relative">
+              <HiOutlineShoppingCart className="text-3xl" />
+              <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full text-white bg-red-500 text-center">
+                1
+              </span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

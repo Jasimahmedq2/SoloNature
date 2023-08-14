@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 const WelcomePage1 = () => {
+  const navigate = useNavigate();
+
+  setTimeout(() => {
+    navigate("/Walkthrough1");
+  }, 3000);
   return (
     <>
       <div className="min-h-screen flex justify-center items-center">

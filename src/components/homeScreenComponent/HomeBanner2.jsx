@@ -5,6 +5,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css/pagination";
 import "swiper/css";
 import "./swiper-pagination.css";
+import { Link } from "react-router-dom";
 const HomeBanner2 = () => {
   return (
     <div className="bg-white py-4">
@@ -26,33 +27,36 @@ const HomeBanner2 = () => {
       >
         <SwiperSlide>
           <div className="flex pt-3 space-x-4">
-            <div className="pt-2 w-1/2 space-x-2">
-              <div>
-                <div className="flex justify-between">
-                  <h2 className="px-2 rounded bg-[#FED2AA] w-12">new</h2>
-                  <span className="hover:cursor-pointer">
-                    <AiOutlineHeart className="text-2xl" />
-                  </span>
-                </div>
-                <img
-                  className="w-36 h-36"
-                  src="https://i.ibb.co/S3SDxBc/14031092-20912948-480.png"
-                  alt=""
-                />
-                <div className="flex text-sm justify-end">
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                </div>
-                <div className="text-center">
-                  <h3 className="text-md font-bold">Energia</h3>
-                  <h4 className="text-md">VITAL B</h4>
-                  <p className="text-md">€ 28.70</p>
+            <Link to="/product/1">
+              <div className="pt-2 w-1/2 space-x-2">
+                <div>
+                  <div className="flex justify-between">
+                    <h2 className="px-2 rounded bg-[#FED2AA] w-12">new</h2>
+                    <span className="hover:cursor-pointer">
+                      <AiOutlineHeart className="text-2xl" />
+                    </span>
+                  </div>
+                  <img
+                    className="w-36 h-36"
+                    src="https://i.ibb.co/S3SDxBc/14031092-20912948-480.png"
+                    alt=""
+                  />
+                  <div className="flex text-sm justify-end">
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-md font-bold">Energia</h3>
+                    <h4 className="text-md">VITAL B</h4>
+                    <p className="text-md">€ 28.70</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
+
             <div className="pt-2 w-1/2">
               <div>
                 <div className="flex justify-between">

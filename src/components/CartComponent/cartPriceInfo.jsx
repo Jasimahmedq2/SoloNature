@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const CartPriceInfo = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="p-3 rounded my-4 space-y-3 bg-[#F8FAFC]">
@@ -57,7 +60,10 @@ const CartPriceInfo = () => {
           </div>
         </div>
       </div>
-      <button className="bg-[#000000] text-white text-md font-bold hover:cursor-pointer p-4 w-full my-6 rounded">
+      <button
+        onClick={() => navigate("/orderForm")}
+        className="bg-[#000000] text-white text-md font-bold hover:cursor-pointer p-4 w-full my-6 rounded"
+      >
         Procedi con l'ordine
       </button>
     </div>

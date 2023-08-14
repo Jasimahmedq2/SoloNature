@@ -1,37 +1,40 @@
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const ProductComponent = () => {
   return (
     <div>
       {/* the data will be displayed dynamically, when will be integrate api  */}
       <div className="grid grid-cols-2">
-        <div className="p-4 border border-gray-300">
-          <div>
-            <div className="flex justify-between">
-              <h2 className="px-2 rounded bg-[#FED2AA] w-12">new</h2>
-              <span className="hover:cursor-pointer">
-                <AiOutlineHeart className="text-2xl" />
-              </span>
-            </div>
-            <img
-              className="w-36 h-36"
-              src="https://i.ibb.co/S3SDxBc/14031092-20912948-480.png"
-              alt=""
-            />
-            <div className="flex text-sm justify-end">
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-            </div>
-            <div className="text-center">
-              <h3 className="text-md font-bold">Energia</h3>
-              <h4 className="text-md">VITAL B</h4>
-              <p className="text-md">€ 28.70</p>
+        <Link to="/product/1">
+          <div className="p-4 border border-gray-300">
+            <div>
+              <div className="flex justify-between">
+                <h2 className="px-2 rounded bg-[#FED2AA] w-12">new</h2>
+                <span className="hover:cursor-pointer">
+                  <AiOutlineHeart className="text-2xl" />
+                </span>
+              </div>
+              <img
+                className="w-36 h-36"
+                src="https://i.ibb.co/S3SDxBc/14031092-20912948-480.png"
+                alt=""
+              />
+              <div className="flex text-sm justify-end">
+                <AiFillStar />
+                <AiFillStar />
+                <AiFillStar />
+                <AiFillStar />
+                <AiFillStar />
+              </div>
+              <div className="text-center">
+                <h3 className="text-md font-bold">Energia</h3>
+                <h4 className="text-md">VITAL B</h4>
+                <p className="text-md">€ 28.70</p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
         <div className="p-4 border border-gray-300">
           <div>
             <div className="flex justify-between">

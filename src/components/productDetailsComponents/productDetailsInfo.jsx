@@ -1,5 +1,6 @@
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { CiStar } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const ProductDetailsInfo = () => {
   return (
@@ -55,9 +56,11 @@ const ProductDetailsInfo = () => {
             reazione anomala ed eccessiva del sistema immunitario, che riconosce
             come nemiche le sostanze normalmente innocue presenti
             nell’ambiente....
-            <span className="text-[#A05611] text-xl font-bold hover:cursor-pointer">
-              Di più
-            </span>
+            <Link to="/ingredienti">
+              <span className="text-[#A05611] text-xl font-bold hover:cursor-pointer">
+                Di più
+              </span>
+            </Link>
           </p>
         </div>
         <div className="p-3 rounded my-4 space-y-3 bg-[#F1F5F9]">
@@ -72,9 +75,11 @@ const ProductDetailsInfo = () => {
             reazione anomala ed eccessiva del sistema immunitario, che riconosce
             come nemiche le sostanze normalmente innocue presenti
             nell’ambiente....
-            <span className="text-[#A05611] text-xl font-bold hover:cursor-pointer">
-              Di più
-            </span>
+            <Link to="/ingredienti">
+              <span className="text-[#A05611] text-xl font-bold hover:cursor-pointer">
+                Di più
+              </span>
+            </Link>
           </p>
           <h3 className="text-xl text-black font-semibold">Epion:</h3>
 
@@ -83,9 +88,11 @@ const ProductDetailsInfo = () => {
             reazione anomala ed eccessiva del sistema immunitario, che riconosce
             come nemiche le sostanze normalmente innocue presenti
             nell’ambiente....
-            <span className="text-[#A05611] text-xl font-bold hover:cursor-pointer">
-              Di più
-            </span>
+            <Link to="/ingredienti">
+              <span className="text-[#A05611] text-xl font-bold hover:cursor-pointer">
+                Di più
+              </span>
+            </Link>
           </p>
         </div>
 

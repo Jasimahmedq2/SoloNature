@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { CiCalendarDate } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const PaymentMethod = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
+  const navigate = useNavigate();
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -179,7 +181,10 @@ const PaymentMethod = () => {
         </span>
       </div>
       <div className="py-2">
-        <button className="bg-[#000000] text-white text-md font-bold hover:cursor-pointer p-4 w-full rounded">
+        <button
+          onClick={() => navigate("/homeScreen")}
+          className="bg-[#000000] text-white text-md font-bold hover:cursor-pointer p-4 w-full rounded"
+        >
           Conferma il pagamento
         </button>
       </div>
