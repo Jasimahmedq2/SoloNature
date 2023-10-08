@@ -1,8 +1,22 @@
+import { useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useRegisterUserMutation } from "../redux/features/auth/authApiSlice";
+import { useForm } from "react-hook-form";
 
-const Register = () => {
+const ResetPassword = () => {
   const navigate = useNavigate();
+
+  const { register, formState: { errors }, handleSubmit, reset } = useForm();
+
+
+  const onSubmit = async (data) => {
+    navigate('/login')
+    reset()
+
+  }
+
   const handleNavigate = () => {
     navigate(-1);
   };
@@ -23,30 +37,13 @@ const Register = () => {
             <h3 className="text-md font-semibold">Nuova Password</h3>
           </div>
         </div>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid justify-items-center">
-            <div className="mb-4 mt-6 relative">
-              <div className="flex items-center space-x-2 bg-base-200 p-2  border border-black w-80 py-4 ">
-                <input
-                  type="text"
-                  placeholder="Ripeti password"
-                  className="focus:outline-0 placeholder:text-[18px] font-sans placeholder:text-black bg-base-200 w-full"
-                />
-                <span>
-                  {" "}
-                  <img
-                    className="h-6 w-6"
-                    src="https://cdn-icons-png.flaticon.com/128/9428/9428781.png"
-                    alt=""
-                  />
-                </span>
-                        
-              </div>
-            </div>
             <div className="mb-4 mt-4 relative">
               <div className="flex items-center space-x-2 bg-base-200 p-2  border border-black w-80 py-4 ">
                 <input
                   type="text"
+                  {...register("password", { required: { value: true, message: "password is required" } })}
                   placeholder="Password"
                   className="focus:outline-0 placeholder:text-[18px] font-sans placeholder:text-black bg-base-200 w-full"
                 />
@@ -58,7 +55,26 @@ const Register = () => {
                     alt=""
                   />
                 </span>
-                        
+
+              </div>
+            </div>
+            <div className="mb-4 mt-6 relative">
+              <div className="flex items-center space-x-2 bg-base-200 p-2  border border-black w-80 py-4 ">
+                <input
+                  type="text"
+                  {...register("password", { required: { value: true, message: "password is required" } })}
+                  placeholder="Ripeti password"
+                  className="focus:outline-0 placeholder:text-[18px] font-sans placeholder:text-black bg-base-200 w-full"
+                />
+                <span>
+                  {" "}
+                  <img
+                    className="h-6 w-6"
+                    src="https://cdn-icons-png.flaticon.com/128/9428/9428781.png"
+                    alt=""
+                  />
+                </span>
+
               </div>
             </div>
           </div>
@@ -77,4 +93,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default ResetPassword;

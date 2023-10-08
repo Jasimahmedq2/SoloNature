@@ -24,7 +24,6 @@ const LoginTwo = () => {
                 placeholder="eva@solonautru.com"
                 className="focus:outline-0 placeholder:text-sm font-md placeholder:text-black bg-base-200 w-full"
               />
-                      
             </div>
             <div className="mb-4 mt-6 relative">
               <div className="flex items-center space-x-2 bg-base-200 p-2  border border-black w-80 py-4 ">
@@ -41,7 +40,7 @@ const LoginTwo = () => {
                     alt=""
                   />
                 </span>
-                        
+
               </div>
             </div>
           </div>
@@ -49,7 +48,6 @@ const LoginTwo = () => {
           <div className="mb-4 text-end pr-8">
             <Link
               to="/forgetpassword"
-              href="#"
               className="text-blue-500 text-sm hover:underline"
             >
               Password dimenticata?
@@ -57,7 +55,10 @@ const LoginTwo = () => {
           </div>
 
           <div className=" flex justify-center mt-6 space-x-4">
-            <button className="bg-[#d4c4b0] text-white font-bold py-4 px-2 focus:outline-none focus:shadow-outline w-80 font-sans text-[20px]">
+            <button
+              onClick={() => navigate("/homeScreen")}
+              className="bg-[#d4c4b0] text-white font-bold py-4 px-2 focus:outline-none focus:shadow-outline w-80 font-sans text-[20px]"
+            >
               Login
             </button>
           </div>
@@ -74,7 +75,7 @@ const LoginTwo = () => {
 
           <div className=" flex justify-center mt-6 space-x-4">
             <button
-              onClick={() => navigate("/register")}
+              onClick={() => navigate("/registerTwo")}
               className="bg-black text-white font-bold py-4 px-2 focus:outline-none focus:shadow-outline w-80 font-sans text-[20px]"
             >
               Register

@@ -18,7 +18,6 @@ import HomeFive from "../pages/HomeFive";
 import Login from "../pages/Login";
 import LoginTwo from "../pages/LoginTwo";
 import ForgetPassword from "../pages/ForgetPassword";
-import Register from "../pages/Register";
 import ProfileOne from "../pages/ProfileOne";
 import ProfileTwo from "../pages/ProfileTwo";
 import ProfileThird from "../pages/ProfileThird";
@@ -26,6 +25,8 @@ import ProfileSix from "../pages/ProfileSix";
 import ProfileFour from "../pages/ProfileFour";
 import ProfileFive from "../pages/ProfileFive";
 import RegisterTwo from "../pages/registerTwo";
+import ResetPassword from "../pages/resetPassword";
+import VerifyEmail from "../pages/verifyEmail";
 
 const router = createBrowserRouter([
   {
@@ -105,11 +106,11 @@ const router = createBrowserRouter([
     element: <ForgetPassword />,
   },
   {
-    path: "/register",
-    element: <Register />,
+    path: "/set-password",
+    element: <ResetPassword />,
   },
   {
-    path: "/registertwo",
+    path: "/register",
     element: <RegisterTwo />,
   },
   {
@@ -135,6 +136,10 @@ const router = createBrowserRouter([
   {
     path: "/profilesix",
     element: <ProfileSix />,
+  },
+  {
+    path: "/verify/:token",
+    element: <VerifyEmail />,
   },
 ]);
 

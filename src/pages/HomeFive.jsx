@@ -33,7 +33,7 @@ const HomeFive = () => {
         </div>
         <div className=" flex justify-center mt-6 space-x-4">
           <button
-            onClick={() => navigate("/registerTwo")}
+            onClick={() => navigate("/register")}
             className="bg-black text-white font-bold py-4 px-2 focus:outline-none focus:shadow-outline w-80 font-sans text-[20px]"
           >
             Register
