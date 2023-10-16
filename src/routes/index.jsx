@@ -27,6 +27,10 @@ import ProfileFive from "../pages/ProfileFive";
 import RegisterTwo from "../pages/registerTwo";
 import ResetPassword from "../pages/resetPassword";
 import VerifyEmail from "../pages/verifyEmail";
+import DashboardLayout from "../Dashboard/DashboardLayout";
+import DashboardProduct from "../Dashboard/DashboardProduct";
+import DashboardAccount from "../Dashboard/DashboardAccount";
+import DashboardCategory from "../Dashboard/DashboardCategory";
 
 const router = createBrowserRouter([
   {
@@ -140,6 +144,27 @@ const router = createBrowserRouter([
   {
     path: "/verify/:token",
     element: <VerifyEmail />,
+  },
+
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children:[
+
+      {
+        path: "/dashboard/productadd",
+        element: <DashboardProduct />,
+      },
+      {
+        path: "/dashboard/account",
+        element: <DashboardAccount />,
+      },
+      {
+        path: "/dashboard/category",
+        element: <DashboardCategory />,
+      },
+      
+    ]
   },
 ]);
 
