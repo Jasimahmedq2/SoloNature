@@ -1,25 +1,47 @@
-import { useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { useRegisterUserMutation } from "../redux/features/auth/authApiSlice";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useResetPasswordMutation } from "../redux/features/auth/authApiSlice";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const ResetPassword = () => {
+  const { token } = useParams()
   const navigate = useNavigate();
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
+  const [resetPassword, { isLoading, isSuccess, isError }] = useResetPasswordMutation()
+
 
   const onSubmit = async (data) => {
-    navigate('/login')
-    reset()
+    if (data.password !== data.confirm_password) {
+      toast.error('password & confirm password must have to same')
+    } else {
+      const resetInfo = {
+        resetToken: token,
+        password: data.password
+      }
+      resetPassword(resetInfo)
+      reset()
+    }
 
   }
+
+  useEffect(() => {
+    if (isSuccess && !isLoading) {
+      navigate('/homeScreen')
+      toast.success("your password have changed")
+    }
+    if (isError && !isLoading) {
+      toast.error('something went wrong')
+    }
+  }, [isLoading])
 
   const handleNavigate = () => {
     navigate(-1);
   };
+
   return (
     <div>
       <div className="max-w-sm w-full bg-white rounded">
@@ -57,12 +79,13 @@ const ResetPassword = () => {
                 </span>
 
               </div>
+              {errors.password?.type === 'required' && <p className="text-red-500 text-xs italic">{errors.password.message}</p>}
             </div>
             <div className="mb-4 mt-6 relative">
               <div className="flex items-center space-x-2 bg-base-200 p-2  border border-black w-80 py-4 ">
                 <input
                   type="text"
-                  {...register("password", { required: { value: true, message: "password is required" } })}
+                  {...register("confirm_password", { required: { value: true, message: "confirm password is required" } })}
                   placeholder="Ripeti password"
                   className="focus:outline-0 placeholder:text-[18px] font-sans placeholder:text-black bg-base-200 w-full"
                 />
@@ -76,15 +99,16 @@ const ResetPassword = () => {
                 </span>
 
               </div>
+              {errors.confirm_password?.type === 'required' && <p className="text-red-500 text-xs italic">{errors.confirm_password.message}</p>}
             </div>
           </div>
 
           <div className=" flex justify-center mt-4 space-x-4">
-            <Link to="/">
-              <button className="bg-black text-white font-bold py-4 px-2 focus:outline-none focus:shadow-outline w-80 font-sans text-[20px]">
-                Salva
-              </button>
-            </Link>
+
+            <button type="submit" className="bg-black text-white font-bold py-4 px-2 focus:outline-none focus:shadow-outline w-80 font-sans text-[20px]">
+              Salva
+            </button>
+
           </div>
         </form>
         <div className="mx-auto h-[5px] w-40 bg-black mt-8 rounded "></div>

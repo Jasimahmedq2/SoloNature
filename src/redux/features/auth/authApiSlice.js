@@ -28,6 +28,24 @@ const authApi = api.injectEndpoints({
         };
       },
     }),
+    resetRequest: builder.mutation({
+      query(data) {
+        return {
+          url: `/auth/reset-password-request`,
+          method: "POST",
+          body: data,
+        };
+      },
+    }),
+    resetPassword: builder.mutation({
+      query(data) {
+        return {
+          url: `/auth/set-new-password`,
+          method: "POST",
+          body: data,
+        };
+      },
+    }),
   }),
 });
 
@@ -35,4 +53,6 @@ export const {
   useLoginUserMutation,
   useRegisterUserMutation,
   useVerifyEmailMutation,
+  useResetRequestMutation,
+  useResetPasswordMutation,
 } = authApi;
