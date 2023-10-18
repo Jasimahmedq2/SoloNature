@@ -9,8 +9,6 @@ const BannerCategory = () => {
       </h2>
       <div className="flex items-center justify-between">
 
-
-
         {
           NData?.data.slice(0, 4).map(category => {
             return (<div key={category?._id} >
