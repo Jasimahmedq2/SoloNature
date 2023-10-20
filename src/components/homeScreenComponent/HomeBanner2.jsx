@@ -6,7 +6,16 @@ import "swiper/css/pagination";
 import "swiper/css";
 import "./swiper-pagination.css";
 import { Link } from "react-router-dom";
+import { useSupplementProductQuery } from "../../redux/features/product/productApiSlice";
+import { useSelector } from "react-redux";
+import Loading from "../Loading";
 const HomeBanner2 = () => {
+  const { token } = useSelector(state => state.auth)
+  const { data, isLoading } = useSupplementProductQuery(token)
+  if (isLoading) {
+    return <Loading />
+  }
+  console.log(data)
   return (
     <div className="bg-white py-4">
       <div className="flex justify-between items-center ">
@@ -21,129 +30,50 @@ const HomeBanner2 = () => {
       <Swiper
         pagination={true}
         modules={[Pagination]}
-        spaceBetween={50}
+        slidesPerView={2}
+        spaceBetween={10}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide>
-          <div className="flex pt-3 space-x-4">
-            <div className="pt-2 w-1/2 space-x-2">
-              <Link to="/product/1">
-                <div>
-                  <div className="flex justify-between">
-                    <h2 className="px-2 rounded bg-[#FED2AA] w-12">new</h2>
-                    <span className="hover:cursor-pointer">
-                      <AiOutlineHeart className="text-2xl" />
-                    </span>
-                  </div>
-                  <img
-                    className="w-36 h-36"
-                    src="https://i.ibb.co/S3SDxBc/14031092-20912948-480.png"
-                    alt=""
-                  />
-                  <div className="flex text-sm justify-end">
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-md font-bold">Energia</h3>
-                    <h4 className="text-md">VITAL B</h4>
-                    <p className="text-md">€ 28.70</p>
-                  </div>
+        {
+          data?.data.map(product => {
+            return (<SwiperSlide key={product?._id}>
+              <div className="flex pt-3 space-x-4">
+                <div className="pt-2  space-x-2">
+                  <Link to="/product/1">
+                    <div>
+                      <div className="flex justify-between">
+                        <h2 className="px-2 rounded bg-[#FED2AA] w-12">new</h2>
+                        <span className="hover:cursor-pointer">
+                          <AiOutlineHeart className="text-2xl" />
+                        </span>
+                      </div>
+                      <img
+                        className="w-36 h-36"
+                        src={product?.image}
+                        alt=""
+                      />
+                      <div className="flex text-sm justify-end">
+                        <AiFillStar />
+                        <AiFillStar />
+                        <AiFillStar />
+                        <AiFillStar />
+                        <AiFillStar />
+                      </div>
+                      <div className="text-center">
+                        <h3 className="text-md font-bold">{product?.name}</h3>
+                        <h4 className="text-md">{product?.title}</h4>
+                        <p className="text-md">€ {product?.price}</p>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-              </Link>
-            </div>
 
-            <div className="pt-2 w-1/2">
-              <div>
-                <div className="flex justify-between">
-                  <h2 className="px-2 rounded bg-[#FFB6B6] w-12">-10%</h2>
-                  <span className="hover:cursor-pointer">
-                    <AiOutlineHeart className="text-2xl" />
-                  </span>
-                </div>
-                <img
-                  className="w-36 h-36"
-                  src="https://i.ibb.co/k4LJMbs/14015212-20332088-480-jpg.png"
-                  alt=""
-                />
-                <div className="flex text-sm justify-end">
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                </div>
-                <div className="text-center">
-                  <h3 className="text-md font-bold">Benessere mentale</h3>
-                  <h4 className="text-md">BIOFENIX</h4>
-                  <p className="text-md">€ 23.40 € 16.40</p>
-                </div>
+
               </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex pt-3 space-x-4">
-            <div className="pt-2 w-1/2 space-x-2">
-              <div>
-                <div className="flex justify-between">
-                  <h2 className="px-2 rounded bg-[#FED2AA] w-12">new</h2>
-                  <span className="hover:cursor-pointer">
-                    <AiOutlineHeart className="text-2xl" />
-                  </span>
-                </div>
-                <img
-                  className="w-36 h-36"
-                  src="https://i.ibb.co/S3SDxBc/14031092-20912948-480.png"
-                  alt=""
-                />
-                <div className="flex text-sm justify-end">
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                </div>
-                <div className="text-center">
-                  <h3 className="text-md font-bold">Energia</h3>
-                  <h4 className="text-md">VITAL B</h4>
-                  <p className="text-md">€ 28.70</p>
-                </div>
-              </div>
-            </div>
-            <div className="pt-2 w-1/2">
-              <div>
-                <div className="flex justify-between">
-                  <h2 className="px-2 rounded bg-[#FFB6B6] w-12">-10%</h2>
-                  <span className="hover:cursor-pointer">
-                    <AiOutlineHeart className="text-2xl" />
-                  </span>
-                </div>
-                <img
-                  className="w-36 h-36"
-                  src="https://i.ibb.co/k4LJMbs/14015212-20332088-480-jpg.png"
-                  alt=""
-                />
-                <div className="flex text-sm justify-end">
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                  <AiFillStar />
-                </div>
-                <div className="text-center">
-                  <h3 className="text-md font-bold">Benessere mentale</h3>
-                  <h4 className="text-md">BIOFENIX</h4>
-                  <p className="text-md">€ 23.40 € 16.40</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
+            </SwiperSlide>)
+          })
+        }
       </Swiper>
     </div>
   );

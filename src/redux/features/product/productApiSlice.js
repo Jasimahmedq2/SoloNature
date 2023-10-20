@@ -29,6 +29,15 @@ const productApi = api.injectEndpoints({
         body: data.info,
       }),
     }),
+    supplementProduct: builder.query({
+      query: (token) => ({
+        url: `/product/supplements`,
+        headers: {
+          Authorization: `${token}`,
+        },
+      }),
+      providesTags: ["category"],
+    }),
   }),
 });
 
@@ -36,4 +45,5 @@ export const {
   useAddCategoryMutation,
   useAddProductMutation,
   useGetCategoryQuery,
+  useSupplementProductQuery,
 } = productApi;
