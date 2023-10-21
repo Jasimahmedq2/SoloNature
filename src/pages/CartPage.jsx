@@ -3,9 +3,19 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import CartProduct from "../components/CartComponent/CartProduct";
 import CartPriceInfo from "../components/CartComponent/cartPriceInfo";
+import { useGetCartProductQuery } from "../redux/features/product/productApiSlice";
+import { useSelector } from "react-redux";
+import Loading from "../components/Loading";
 
 const CartPage = () => {
   const navigate = useNavigate();
+  const { token } = useSelector(state => state.auth)
+  const { data, isLoading } = useGetCartProductQuery(token)
+
+  if (isLoading) {
+    return <Loading />
+  }
+
   const handleNavigate = () => {
     navigate(-1);
   };
@@ -39,10 +49,10 @@ const CartPage = () => {
         </button>
       </div>
       <div>
-        <CartProduct />
+        <CartProduct products={data?.data} />
       </div>
       <div>
-        <CartPriceInfo />
+        <CartPriceInfo products={data?.data} />
       </div>
     </div>
   );

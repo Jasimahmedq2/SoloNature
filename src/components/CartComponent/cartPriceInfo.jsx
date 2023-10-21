@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 
-const CartPriceInfo = () => {
+const CartPriceInfo = ({ products }) => {
   const navigate = useNavigate();
   return (
     <div>
@@ -11,7 +12,7 @@ const CartPriceInfo = () => {
         <div className="border-b border-[#CBD5E1] space-y-4 py-3">
           <div className="flex justify-between items-center">
             <h3 className="text-xl text-black font-semibold">Subtotale</h3>
-            <h3 className="text-xl text-black font-semibold">€51,80</h3>
+            <h3 className="text-xl text-black font-semibold">€{products?.totalPrice}</h3>
           </div>
           <div className="flex justify-between">
             <h3 className="text-xl text-black font-semibold">Spedizione</h3>
@@ -23,7 +24,7 @@ const CartPriceInfo = () => {
         </div>
         <div className="flex justify-between items-center">
           <h3 className="text-xl text-black font-semibold">Totale</h3>
-          <h3 className="text-xl text-black font-bold">€51,80</h3>
+          <h3 className="text-xl text-black font-bold">€{products?.totalPrice}</h3>
         </div>
         <h3 className="text-xl text-black font-bold py-2">
           Possiedi un buono regalo?

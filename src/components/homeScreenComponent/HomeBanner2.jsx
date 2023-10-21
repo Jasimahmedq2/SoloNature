@@ -10,8 +10,9 @@ import { useSupplementProductQuery } from "../../redux/features/product/productA
 import { useSelector } from "react-redux";
 import Loading from "../Loading";
 const HomeBanner2 = () => {
+  const categoryType = "Integratori alimentari"
   const { token } = useSelector(state => state.auth)
-  const { data, isLoading } = useSupplementProductQuery(token)
+  const { data, isLoading } = useSupplementProductQuery({ token, categoryType })
   if (isLoading) {
     return <Loading />
   }
@@ -40,7 +41,7 @@ const HomeBanner2 = () => {
             return (<SwiperSlide key={product?._id}>
               <div className="flex pt-3 space-x-4">
                 <div className="pt-2  space-x-2">
-                  <Link to="/product/1">
+                  <Link to={`/product/${product?._id}`}>
                     <div>
                       <div className="flex justify-between">
                         <h2 className="px-2 rounded bg-[#FED2AA] w-12">new</h2>

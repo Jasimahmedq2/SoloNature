@@ -1,6 +1,42 @@
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
+import { toast } from "react-toastify";
+import { useAddToCartMutation } from "../../redux/features/product/productApiSlice";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const AdditionalProduct = () => {
+const AdditionalProduct = ({ product }) => {
+  const navigate = useNavigate()
+  const [quantity] = useState(1)
+
+  const { token } = useSelector(state => state.auth)
+
+  const [addToCart, { isLoading, isSuccess, isError }]
+    = useAddToCartMutation()
+
+
+  const handleCart = async (productId) => {
+
+    const cartInfo = {
+      token,
+      productId,
+      quantity
+    }
+    await addToCart(cartInfo)
+  }
+
+
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("successfully added the product in cart")
+      navigate('/cart')
+    }
+    if (isError) {
+      toast.error("something went wrong")
+    }
+  }, [isLoading, isError, isSuccess])
   return (
     <>
       <div className="px-6 pb-24">
@@ -47,7 +83,7 @@ const AdditionalProduct = () => {
               </div>
             </div>
           </div>
-          <button className="bg-[#ECDFCE] text-md font-bold hover:cursor-pointer p-4 w-full my-2 rounded">
+          <button onClick={() => handleCart(product?._id)} className="bg-[#ECDFCE] text-md font-bold hover:cursor-pointer p-4 w-full my-2 rounded">
             Aggiungi entrambi al carrello
           </button>
         </div>
@@ -62,7 +98,7 @@ const AdditionalProduct = () => {
           </p>
           <p className="text-sm font-semibold text-[#000000]">15% off</p>
         </div>
-        <button className="bg-[#ECDFCE] text-md font-bold hover:cursor-pointer p-3 rounded">
+        <button onClick={() => handleCart(product?._id)} className="bg-[#ECDFCE] text-md font-bold hover:cursor-pointer p-3 rounded">
           Aggiungi al carrello
         </button>
       </div>

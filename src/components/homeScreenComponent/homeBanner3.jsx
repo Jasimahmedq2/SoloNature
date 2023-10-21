@@ -8,10 +8,12 @@ import "./swiper-pagination.css";
 import { useSelector } from "react-redux";
 import { useSupplementProductQuery } from "../../redux/features/product/productApiSlice";
 import Loading from "../Loading";
+import { Link } from "react-router-dom";
 
 const HomeBanner3 = () => {
+  const categoryType = "Cosmesi"
   const { token } = useSelector(state => state.auth)
-  const { data, isLoading } = useSupplementProductQuery(token)
+  const { data, isLoading } = useSupplementProductQuery({ token, categoryType })
   if (isLoading) {
     return <Loading />
   }
@@ -32,31 +34,33 @@ const HomeBanner3 = () => {
         {
           data?.data?.map(product => {
             return (<SwiperSlide key={product?._id}>
-              <div className="flex space-x-2">
-                <div className="pt-2 relative space-x-2">
-                  <div>
-                    <span className="hover:cursor-pointer flex justify-end">
-                      <AiOutlineHeart className="text-2xl" />
-                    </span>
+              <Link to={`/product/${product?._id}`}>
+                <div className="flex space-x-2">
+                  <div className="pt-2 relative space-x-2">
+                    <div>
+                      <span className="hover:cursor-pointer flex justify-end">
+                        <AiOutlineHeart className="text-2xl" />
+                      </span>
 
-                    <img
-                      className="w-36 h-36"
-                      src={product?.image}
-                      alt=""
-                    />
-                    <h2 className="flex items-center absolute right-2 z-10 bottom-20 space-x-2 mt-[-6px] w-16 shadow-lg">
-                      <AiFillStar />
-                      <span>4.5/5</span>
-                    </h2>
+                      <img
+                        className="w-36 h-36"
+                        src={product?.image}
+                        alt=""
+                      />
+                      <h2 className="flex items-center absolute right-2 z-10 bottom-20 space-x-2 mt-[-6px] bg-white w-16 shadow-lg">
+                        <AiFillStar />
+                        <span>4.5/5</span>
+                      </h2>
 
-                    <div className="text-center">
-                      <h3 className="text-md font-bold">{product?.name}</h3>
-                      <h4 className="text-md">{product?.title}</h4>
-                      <p className="text-md">€ {product?.price}</p>
+                      <div className="text-center">
+                        <h3 className="text-md font-bold">{product?.name}</h3>
+                        <h4 className="text-md">{product?.title}</h4>
+                        <p className="text-md">€ {product?.price}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>)
           })
         }

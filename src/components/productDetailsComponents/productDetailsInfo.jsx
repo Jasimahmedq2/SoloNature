@@ -1,17 +1,59 @@
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { CiStar } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAddToCartMutation } from "../../redux/features/product/productApiSlice";
 
-const ProductDetailsInfo = () => {
+const ProductDetailsInfo = ({ product }) => {
+  const navigate = useNavigate()
+  const [quantity, setQuantity] = useState(1)
+
+  const { token } = useSelector(state => state.auth)
+
+  const [addToCart, { isLoading, isSuccess, isError }]
+    = useAddToCartMutation()
+
+
+  const handleCart = async (productId) => {
+
+    const cartInfo = {
+      token,
+      productId,
+      quantity
+    }
+    await addToCart(cartInfo)
+  }
+
+  const handleMinusQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(pre => pre - 1)
+    } else {
+      toast.error("1 is minimum quantity")
+    }
+  }
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("successfully added the product in cart")
+      navigate('/cart')
+    }
+    if (isError) {
+      toast.error("something went wrong")
+    }
+  }, [isLoading, isError, isSuccess])
+
   return (
     <div className="px-6 py-6">
       <div>
         <h2 className="text-xl tracking-wide font-semibold text-[#0F172A] text-start">
-          Pacchetto Allergie
+          {product?.title}
         </h2>
 
         <div className="flex justify-between items-center py-2">
-          <h3 className="text-xl font-bold text-black">€340</h3>
+          <h3 className="text-xl font-bold text-black">€{product?.price}</h3>
           <div className="flex text-sm justify-end">
             <AiFillStar />
             <AiFillStar />
@@ -21,21 +63,22 @@ const ProductDetailsInfo = () => {
 
         <div className="flex justify-between items-center space-x-4 py-2">
           <div className="flex justify-around items-center w-1/2 border-2 border-black p-2">
-            <AiOutlineMinus className="hover:cursor-pointer" />
-            <p>1</p>
-            <AiOutlinePlus className="hover:cursor-pointer" />
+            <AiOutlineMinus onClick={handleMinusQuantity} className="hover:cursor-pointer" />
+            <p>{quantity}</p>
+            <AiOutlinePlus onClick={() => setQuantity(pre => pre + 1)} className="hover:cursor-pointer" />
           </div>
           <div className="bg-[#ECDFCE] hover:cursor-pointer p-2 w-1/2">
-            <p className="text-md font-semibold whitespace-nowrap text-[#0F172A]">
-              Aggiungi al carrello
-            </p>
+            <button onClick={() => handleCart(product?._id)} className="text-md font-semibold whitespace-nowrap text-[#0F172A]">
+              {
+                isLoading ? "loading..." : "Aggiungi al carrello"
+              }
+
+            </button>
           </div>
         </div>
         <div className="py-2">
           <p className="text-[#000000] text-left leading-relaxed font-semibold">
-            Per affrontare al meglio le allergie stagionali, Solo Natura ha
-            ideato il nuovo kit convenienza a doppia azione composto dallo spray
-            TALOS e dalle capsule EPION.
+            {product?.description}
           </p>
         </div>
         <div className="p-3 rounded my-4 bg-[#F1F5F9] flex items-center space-x-4">
