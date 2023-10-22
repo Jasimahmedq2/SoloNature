@@ -30,7 +30,7 @@ const ResetPassword = () => {
 
   useEffect(() => {
     if (isSuccess && !isLoading) {
-      navigate('/homeScreen')
+      navigate('/login')
       toast.success("your password have changed")
     }
     if (isError && !isLoading) {
