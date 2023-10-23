@@ -86,6 +86,39 @@ const productApi = api.injectEndpoints({
 
       invalidatesTags: ["product"],
     }),
+    applyPromoCode: builder.mutation({
+      query: (data) => ({
+        url: `/promoCode/apply-promo-code`,
+        method: "POST",
+        headers: {
+          Authorization: `${data?.token}`,
+        },
+        body: data.info,
+      }),
+
+      invalidatesTags: ["product"],
+    }),
+    addShippingAddress: builder.mutation({
+      query: (data) => ({
+        url: `/orderInfo/add-information`,
+        method: "POST",
+        headers: {
+          Authorization: `${data?.token}`,
+        },
+        body: data.info,
+      }),
+
+      invalidatesTags: ["shipping"],
+    }),
+    getShippingAddress: builder.query({
+      query: (token) => ({
+        url: `/orderInfo/get-information`,
+        headers: {
+          Authorization: `${token}`,
+        },
+      }),
+      providesTags: ["shipping"],
+    }),
   }),
 });
 
@@ -98,4 +131,7 @@ export const {
   useAddToCartMutation,
   useGetCartProductQuery,
   useRemoveQuantityMutation,
+  useApplyPromoCodeMutation,
+  useAddShippingAddressMutation,
+  useGetShippingAddressQuery,
 } = productApi;
